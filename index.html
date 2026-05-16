@@ -7,7 +7,7 @@
   <meta name="description" content="Praktické rady pro cestování, život i stěhování do Španělska. E-booky, konzultace a osobní průvodce.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,9 +20,10 @@
         <i data-lucide="menu"></i>
       </button>
       <nav class="header__nav" id="main-nav">
+        <a href="#o-pavle" class="header__link">O Pavle</a>
         <a href="#stehovani" class="header__link">Stěhování</a>
-        <a href="#zivot" class="header__link">Život</a>
-        <a href="#cestovani" class="header__link">Cestování</a>
+        <a href="#konzultace" class="header__link">Konzultace</a>
+        <a href="#recenze" class="header__link">Recenze</a>
         <a href="#blog" class="header__link">Články</a>
         <a href="#stehovani" class="header__cta-btn btn btn--primary btn--sm">Získej e-book</a>
       </nav>
@@ -32,12 +33,25 @@
   <main>
 
     <!-- Hero -->
-    <section class="section section-hero" id="hero">
-      <div class="container">
-        <div class="hero__content">
-          <h1 class="hero__title">Praktické rady pro cestování, život i stěhování do&nbsp;Španělska</h1>
-          <p class="hero__subtitle">Pomáhám Čechům zorientovat se ve španělském životě — od papírování a bydlení až po tipy na výlety. Vše z vlastní zkušenosti po letech života ve Španělsku.</p>
-          <a href="#stehovani" class="btn btn--primary btn--lg">Chci se dozvědět víc</a>
+    <section class="section-hero" id="hero">
+      <picture class="hero__bg">
+        <source media="(max-width: 768px)" srcset="images/hero-square.jpg">
+        <img src="images/hero-wide.jpg" alt="Pohled na španělské pobřežní městečko" loading="eager">
+      </picture>
+      <div class="hero__overlay">
+        <div class="container">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              <span class="hero__title-main">Španělsko</span>
+              <span class="hero__title-script">s Pavlou</span>
+              <svg class="hero__wave" viewBox="0 0 200 14" aria-hidden="true" focusable="false">
+                <path d="M2 8 Q 25 1, 50 8 T 100 8 T 150 8 T 198 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </h1>
+            <p class="hero__tagline">Praktický průvodce pro Čechy, kteří se stěhují do Španělska.</p>
+            <p class="hero__tagline-sub">Od prvních úvah až po každodenní život.</p>
+            <a href="#stehovani" class="btn btn--primary btn--lg">Chci se dozvědět víc</a>
+          </div>
         </div>
       </div>
     </section>
@@ -80,80 +94,85 @@
           <p class="section__subtitle">Plánujete nový začátek ve Španělsku? Poradím vám se vším, co potřebujete zařídit — krok za krokem, bez zbytečného stresu.</p>
         </div>
 
-        <div class="card-grid fade-in">
-          <div class="card">
+        <div class="card-grid card-grid--five fade-in">
+          <a href="articles/doklady.html" class="card">
             <div class="card__icon"><i data-lucide="file-text"></i></div>
-            <h3 class="card__title">Dokumenty</h3>
+            <h3 class="card__title">Doklady</h3>
             <p class="card__text">NIE, rezidence, registrace — kompletní přehled potřebných dokumentů a jak je vyřídit.</p>
-          </div>
-          <div class="card">
+          </a>
+          <a href="articles/bydleni.html" class="card">
             <div class="card__icon"><i data-lucide="home"></i></div>
             <h3 class="card__title">Bydlení</h3>
             <p class="card__text">Jak hledat bydlení, na co si dát pozor ve smlouvě a jaké jsou reálné náklady.</p>
-          </div>
-          <div class="card">
+          </a>
+          <a href="articles/banky.html" class="card">
             <div class="card__icon"><i data-lucide="landmark"></i></div>
             <h3 class="card__title">Banky</h3>
             <p class="card__text">Otevření účtu, převody peněz a tipy na bankovní služby pro cizince.</p>
-          </div>
-          <div class="card">
-            <div class="card__icon"><i data-lucide="heart-pulse"></i></div>
-            <h3 class="card__title">Zdravotnictví</h3>
-            <p class="card__text">Jak funguje španělský zdravotní systém a co potřebujete pro přístup k lékaři.</p>
-          </div>
-          <div class="card">
-            <div class="card__icon"><i data-lucide="graduation-cap"></i></div>
-            <h3 class="card__title">Školy</h3>
-            <p class="card__text">Přehled školství, zápis dětí do školy a rozdíly oproti českému systému.</p>
-          </div>
-          <div class="card">
+          </a>
+          <a href="articles/prace.html" class="card">
             <div class="card__icon"><i data-lucide="briefcase"></i></div>
             <h3 class="card__title">Práce</h3>
             <p class="card__text">Kde hledat práci, jaké jsou podmínky zaměstnání a co je potřeba k pracovnímu povolení.</p>
-          </div>
-          <div class="card">
+          </a>
+          <a href="articles/podnikani.html" class="card">
             <div class="card__icon"><i data-lucide="store"></i></div>
             <h3 class="card__title">Podnikání</h3>
             <p class="card__text">Autónomo, založení firmy a daňový systém — vše, co potřebujete vědět pro podnikání ve Španělsku.</p>
-          </div>
+          </a>
+          <a href="articles/vzdelani.html" class="card">
+            <div class="card__icon"><i data-lucide="graduation-cap"></i></div>
+            <h3 class="card__title">Vzdělání</h3>
+            <p class="card__text">Přehled španělského školství, zápis dětí do školy a rozdíly oproti českému systému.</p>
+          </a>
+          <a href="articles/zdravotnictvi.html" class="card">
+            <div class="card__icon"><i data-lucide="heart-pulse"></i></div>
+            <h3 class="card__title">Zdravotnictví</h3>
+            <p class="card__text">Jak funguje španělský zdravotní systém a co potřebujete pro přístup k lékaři.</p>
+          </a>
+          <a href="articles/duchod.html" class="card">
+            <div class="card__icon"><i data-lucide="piggy-bank"></i></div>
+            <h3 class="card__title">Důchod</h3>
+            <p class="card__text">Penzijní systém, převod českého důchodu a podmínky pro důchodce ve Španělsku.</p>
+          </a>
+          <a href="articles/auto.html" class="card">
+            <div class="card__icon"><i data-lucide="car"></i></div>
+            <h3 class="card__title">Auto</h3>
+            <p class="card__text">Přepis vozidla, řidičský průkaz, pojištění a španělské dopravní předpisy.</p>
+          </a>
+          <a href="articles/lgbt.html" class="card">
+            <div class="card__icon"><i data-lucide="rainbow"></i></div>
+            <h3 class="card__title">LGBT</h3>
+            <p class="card__text">Práva, registrované partnerství a život LGBT komunity ve Španělsku.</p>
+          </a>
         </div>
 
         <!-- Product block -->
         <div class="product-block fade-in">
           <p class="product-block__intro">Všechna tato témata najdete podrobně zpracovaná v mém e-booku:</p>
-          <div class="product-grid">
-            <div class="product-card">
-              <div class="product-card__image-wrap">
-                <img src="images/ebook.jpg" alt="E-book Stěhování do Španělska" class="product-card__image">
-              </div>
-              <div class="product-card__content">
-                <h3 class="product-card__title">E-book: Stěhování do Španělska</h3>
-                <p class="product-card__desc">Kompletní průvodce stěhováním — dokumenty, bydlení, finance, zdravotnictví, školy, práce i podnikání. Vše na jednom místě.</p>
-                <p class="product-card__price">490 Kč</p>
-                <a href="#" class="btn btn--primary">Koupit e-book</a>
-              </div>
+          <div class="product-feature">
+            <div class="product-feature__image-wrap">
+              <img src="images/ebook.jpg" alt="E-book Španělsko s Pavlou" class="product-feature__image">
             </div>
-            <div class="product-card product-card--featured">
-              <div class="product-card__badge">Nejoblíbenější</div>
-              <div class="product-card__content">
-                <h3 class="product-card__title">E-book + Zoom konzultace</h3>
-                <p class="product-card__desc">Kromě e-booku získáte 60minutovou Zoom konzultaci se mnou. Projdeme vaši konkrétní situaci a odpovím na všechny vaše otázky.</p>
-                <ul class="product-card__list">
-                  <li>E-book Stěhování do Španělska</li>
-                  <li>60 min Zoom konzultace</li>
-                  <li>Individuální rady na míru</li>
-                  <li>Odpovědi na vaše dotazy</li>
-                </ul>
-                <p class="product-card__price">1 990 Kč</p>
-                <a href="#" class="btn btn--primary">Koupit balíček</a>
-              </div>
+            <div class="product-feature__content">
+              <h3 class="product-feature__title">E-book: Španělsko s Pavlou</h3>
+              <p class="product-feature__desc">Kompletní průvodce stěhováním — doklady, bydlení, banky, práce, podnikání, vzdělání, zdravotnictví, důchod, auto i LGBT témata. Všechno, co potřebujete vědět, na jednom místě.</p>
+              <ul class="product-feature__list">
+                <li>Přes 200 stran ověřených informací</li>
+                <li>Praktické checklisty a šablony</li>
+                <li>Odkazy na úřady a formuláře</li>
+                <li>Pravidelné aktualizace zdarma</li>
+              </ul>
+              <p class="product-feature__price">490 Kč</p>
+              <a href="#" class="btn btn--primary btn--lg">Koupit e-book</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Život ve Španělsku -->
+    <!--
+    Život ve Španělsku — sekce dočasně skrytá
     <section class="section section-zivot" id="zivot">
       <div class="container">
         <div class="section__header fade-in">
@@ -189,7 +208,6 @@
           </div>
         </div>
 
-        <!-- Product block (same products, different angle) -->
         <div class="product-block fade-in">
           <p class="product-block__intro">Všechno, co potřebujete vědět o životě ve Španělsku, najdete v mém e-booku — a pokud chcete poradit osobně, mám pro vás i balíček s konzultací:</p>
           <div class="product-grid">
@@ -223,8 +241,10 @@
         </div>
       </div>
     </section>
+    -->
 
-    <!-- Cestování po Španělsku -->
+    <!--
+    Cestování po Španělsku — sekce dočasně skrytá
     <section class="section section-cestovani section--grey" id="cestovani">
       <div class="container">
         <div class="section__header fade-in">
@@ -244,6 +264,44 @@
             <h3 class="travel-card__title">Osobní průvodce na míru</h3>
             <p class="travel-card__desc">Chcete poznat Španělsko s místním člověkem, který ví, kam jít? Nabízím osobní doprovod — přizpůsobený přesně vašim přáním, tempu i zájmům.</p>
             <a href="#" class="btn btn--outline">Napsat Pavle</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- Konzultace s Pavlou -->
+    <section class="section section-konzultace" id="konzultace">
+      <div class="container">
+        <div class="section__header fade-in">
+          <h2 class="section__title">Potřebujete poradit napřímo?</h2>
+          <p class="section__subtitle">E-book vás provede vším důležitým. Když ale řešíte konkrétní situaci a chcete mít jistotu, ráda vám pomůžu osobně — online přes Zoom, nebo se sejdeme přímo ve Španělsku.</p>
+        </div>
+
+        <div class="consult-grid fade-in">
+          <div class="consult-card">
+            <div class="consult-card__icon"><i data-lucide="video"></i></div>
+            <h3 class="consult-card__title">Konzultace online</h3>
+            <p class="consult-card__desc">Setkáme se přes Zoom a v klidu projdeme vaši situaci. Připravím vám konkrétní doporučení a plán dalších kroků na míru — bez obecných frází.</p>
+            <ul class="consult-card__list">
+              <li>60 minut individuálního hovoru</li>
+              <li>Odpovědi na vaše konkrétní dotazy</li>
+              <li>Písemné shrnutí po konzultaci</li>
+              <li>Z pohodlí domova, kdykoli vám to vyhovuje</li>
+            </ul>
+            <a href="#kontakt" class="btn btn--primary">Domluvit konzultaci</a>
+          </div>
+          <div class="consult-card">
+            <div class="consult-card__icon"><i data-lucide="map-pin"></i></div>
+            <h3 class="consult-card__title">Osobně ve Španělsku</h3>
+            <p class="consult-card__desc">Doprovodím vás na úřady, pomůžu s prohlídkou bydlení nebo s vyjednáváním přímo na místě. Pro ty, kdo si chtějí být jistí, že je nikdo nepřevezme.</p>
+            <ul class="consult-card__list">
+              <li>Osobní doprovod na úřady a schůzky</li>
+              <li>Tlumočení a překlady ve španělštině</li>
+              <li>Prohlídky lokalit a bytů</li>
+              <li>Termín i místo dle domluvy</li>
+            </ul>
+            <a href="#kontakt" class="btn btn--primary">Napsat Pavle</a>
           </div>
         </div>
       </div>
@@ -276,8 +334,8 @@
             <div class="testimonial-card__stars">
               <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
             </div>
-            <p class="testimonial-card__text">&ldquo;Barcelona s Pavlou jako průvodkyní byl úplně jiný zážitek než běžná turistická prohlídka. Ukázala nám místa, která bychom sami nenašli.&rdquo;</p>
-            <p class="testimonial-card__author">Petra S., turistka</p>
+            <p class="testimonial-card__text">&ldquo;Pavla mi pomohla zařídit NIE, najít byt a zorientovat se v úřadech. Bez její pomoci bych se v tom utopila — všechno bylo najednou srozumitelné a zvládnutelné.&rdquo;</p>
+            <p class="testimonial-card__author">Petra S., přestěhovala se do Valencie</p>
           </div>
         </div>
       </div>
@@ -322,24 +380,55 @@
     <section class="section section-kontakt" id="kontakt">
       <div class="container">
         <div class="section__header fade-in">
-          <h2 class="section__title">Zůstaňme v kontaktu</h2>
-          <p class="section__subtitle">Přihlaste se k odběru novinek nebo mi napište — ráda vám poradím.</p>
+          <h2 class="section__title">Ozvěte se mi</h2>
+          <p class="section__subtitle">Máte konkrétní otázku nebo si chcete domluvit konzultaci? Napište mi přes formulář, nebo rovnou na WhatsAppu — obvykle odpovídám do 24 hodin.</p>
         </div>
 
         <div class="kontakt-grid fade-in">
-          <div class="kontakt-newsletter">
-            <h3 class="kontakt__subtitle">Odběr novinek</h3>
-            <p>Jednou měsíčně vám pošlu tipy, novinky a praktické rady přímo do schránky.</p>
-            <form class="newsletter-form" action="#" method="post">
-              <input type="email" class="newsletter-form__input" placeholder="Váš e-mail" required aria-label="E-mailová adresa">
-              <button type="submit" class="btn btn--primary">Odebírat</button>
+          <div class="kontakt-message">
+            <h3 class="kontakt__subtitle">Napište mi zprávu</h3>
+            <p class="kontakt__lead">Hodí se, když chcete sepsat víc do detailu nebo přiložit konkrétní situaci.</p>
+            <!-- TODO: replace YOUR_FORM_ID with Formspree form ID from https://formspree.io -->
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="contact-form__row">
+                <label class="contact-form__field">
+                  <span class="contact-form__label">Jméno</span>
+                  <input type="text" name="name" class="contact-form__input" required>
+                </label>
+                <label class="contact-form__field">
+                  <span class="contact-form__label">E-mail</span>
+                  <input type="email" name="email" class="contact-form__input" required>
+                </label>
+              </div>
+              <label class="contact-form__field">
+                <span class="contact-form__label">Telefon <span class="contact-form__optional">(nepovinné)</span></span>
+                <input type="tel" name="phone" class="contact-form__input">
+              </label>
+              <label class="contact-form__field">
+                <span class="contact-form__label">Vaše zpráva</span>
+                <textarea name="message" rows="5" class="contact-form__input contact-form__textarea" required></textarea>
+              </label>
+              <input type="text" name="_gotcha" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button type="submit" class="btn btn--primary btn--lg">Odeslat zprávu</button>
             </form>
           </div>
-          <div class="kontakt-message">
-            <h3 class="kontakt__subtitle">Napište mi</h3>
-            <p>Máte dotaz nebo si nevíte rady? Neváhejte se ozvat — odpovídám obvykle do 24 hodin.</p>
-            <a href="mailto:pavla@spanelskospavlou.cz" class="btn btn--outline">Napsat Pavle</a>
-          </div>
+
+          <aside class="kontakt-whatsapp">
+            <div class="kontakt-whatsapp__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+            </div>
+            <h3 class="kontakt__subtitle">Nebo rychle na WhatsAppu</h3>
+            <p>Nejjednodušší cesta pro krátké dotazy. Stačí jedno kliknutí a píšete mi přímo — žádné formuláře, žádné čekání.</p>
+            <!-- TODO: replace 420000000000 with Pavla's WhatsApp number (international format, no +) -->
+            <a href="https://wa.me/420000000000?text=Dobr%C3%BD%20den%20Pavlo%2C%20m%C3%A1m%20dotaz%20ohledn%C4%9B%20st%C4%9Bhov%C3%A1n%C3%AD%20do%20%C5%A0pan%C4%9Blska." class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+              Napsat na WhatsApp
+            </a>
+            <p class="kontakt-whatsapp__note">
+              <i data-lucide="clock"></i>
+              Obvykle odpovídám do 24 hodin
+            </p>
+          </aside>
         </div>
 
         <div class="kontakt-social fade-in">
