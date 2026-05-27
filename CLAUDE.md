@@ -1,8 +1,8 @@
-# Španělsko s Pavlou — Project Instructions
+# Španělsko s Pavlou Website — Project Instructions
 
 ## Project overview
 
-Single-page Czech-language landing page for "Španělsko s Pavlou" — a personal brand selling a relocation e-book for Czechs moving to Spain. The page is a continuous scroll divided into clearly defined sections. A blog listing + article template will be added later.
+Czech-language landing page for "Španělsko s Pavlou" — a personal brand selling a relocation e-book for Czechs moving to Spain. The page is a continuous scroll divided into clearly defined sections. The website contains a set of article sub pages located in blog and ebook directory.
 
 All content is in **Czech**.
 
@@ -11,7 +11,6 @@ All content is in **Czech**.
 ## Tech stack
 
 - Pure HTML + CSS + minimal vanilla JS (no frameworks, no build tools)
-- Single `index.html` file with linked `style.css`
 - No npm, no bundlers — keep it static and deployable anywhere
 
 ---
@@ -49,14 +48,16 @@ All content is in **Czech**.
 - Style icons in the terracotta accent colour — consistent across all cards
 
 ### Images
-- **Four images on the entire site:**
+- **Images on the site:**
   - Pavla's photo: `images/pavla.jpg`
   - E-book cover: `images/ebook.jpg`
   - Hero backdrop wide: `images/hero-wide.jpg` (≥769px)
   - Hero backdrop square: `images/hero-square.jpg` (≤768px, served via `<picture>` source)
-- No additional product covers, no blog thumbnails
+  - Section decor circles: `images/spain-1.jpg` … `images/spain-5.jpg` — 1:1 photos rendered as centred circles (max 200px) above the `.section__title` of Stěhování, Konzultace, Recenze, Blog, and Kontakt (in that order). Styled via `.section__image`.
+- No product covers beyond the e-book, no blog thumbnails
 - All other visual interest comes from typography, colour, whitespace, and Lucide icons
 - Blog preview cards use text only (no thumbnail images)
+- Articles in blog may contain specific content images
 
 ### Interactions
 - Smooth scroll for anchor navigation
@@ -93,17 +94,17 @@ All content is in **Czech**.
 
 ### 4. Stěhování do Španělska
 - Section headline + short intro
-- Grid of 10 icon + text cards (`.card-grid--five`, 5×2 on desktop). **Each card is an `<a class="card">` wrapper linking to its article page in `articles/`:**
-  - Doklady (`file-text`) → `articles/doklady.html`
-  - Bydlení (`home`) → `articles/bydleni.html`
-  - Banky (`landmark`) → `articles/banky.html`
-  - Práce (`briefcase`) → `articles/prace.html`
-  - Podnikání (`store`) → `articles/podnikani.html`
-  - Vzdělání (`graduation-cap`) → `articles/vzdelani.html`
-  - Zdravotnictví (`heart-pulse`) → `articles/zdravotnictvi.html`
-  - Důchod (`piggy-bank`) → `articles/duchod.html`
-  - Auto (`car`) → `articles/auto.html`
-  - LGBT (`rainbow`) → `articles/lgbt.html` *(stub — content TBD)*
+- Grid of 10 icon + text cards (`.card-grid--five`, 5×2 on desktop). **Each card is an `<a class="card">` wrapper linking to its article page in `ebook/`:**
+  - Doklady (`file-text`) → `ebook/doklady.html`
+  - Bydlení (`home`) → `ebook/bydleni.html`
+  - Banky (`landmark`) → `ebook/banky.html`
+  - Práce (`briefcase`) → `ebook/prace.html`
+  - Podnikání (`store`) → `ebook/podnikani.html`
+  - Vzdělání (`graduation-cap`) → `ebook/vzdelani.html`
+  - Zdravotnictví (`heart-pulse`) → `ebook/zdravotnictvi.html`
+  - Důchod (`piggy-bank`) → `ebook/duchod.html`
+  - Auto (`car`) → `ebook/auto.html`
+  - LGBT (`rainbow`) → `ebook/lgbt.html` 
 - **Product block** — single product, split half/half (`.product-feature`):
   - Left half: full-bleed `images/ebook.jpg` (no padding, `object-fit: cover`)
   - Right half: title, description, bullet list of inclusions, price, primary "Koupit e-book" CTA
@@ -135,7 +136,7 @@ All content is in **Czech**.
 
 ---
 
-## Article pages (`articles/*.html`)
+## Article pages (`ebook/*.html`)
 
 Each Stěhování card on the home page links to a dedicated article page that doubles as a sales landing page for the e-book.
 
@@ -153,7 +154,7 @@ Each Stěhování card on the home page links to a dedicated article page that d
 6. **Same footer** as the home page (legal links resolve to `../index.html`).
 
 ### Stub pages
-- `articles/vzdelani.html` and `articles/lgbt.html` use the `.article-stub` block instead of a real body — a centred icon, "Tato kapitola se právě připravuje" headline, short copy, and a button down to `#ebook`. Replace the stub block with a real `.article__body` once the markdown source exists in `articles-md/`.
+- `ebook/lgbt.html` uses the `.article-stub` block instead of a real body — a centred icon, "Tato kapitola se právě připravuje" headline, short copy, and a button down to `#ebook`. Replace the stub block with a real `.article__body` once the markdown source exists in `ebook-md/`.
 
 ### Asset paths
 - Stylesheet: `../style.css`
@@ -174,19 +175,20 @@ Each Stěhování card on the home page links to a dedicated article page that d
 │   ├── pavla.jpg
 │   ├── ebook.jpg
 │   ├── hero-wide.jpg
-│   └── hero-square.jpg
-├── articles/                 # one HTML page per topic in the Stěhování grid
+│   ├── hero-square.jpg
+│   └── spain-1.jpg … spain-5.jpg   # section decor circles on homepage
+├── ebook/                 # one HTML page per topic in the Stěhování grid
 │   ├── doklady.html
 │   ├── bydleni.html
 │   ├── banky.html
 │   ├── prace.html
 │   ├── podnikani.html
-│   ├── vzdelani.html         # stub (no markdown yet)
+│   ├── vzdelani.html
 │   ├── zdravotnictvi.html
 │   ├── duchod.html
 │   ├── auto.html
 │   └── lgbt.html             # stub (no markdown yet)
-├── articles-md/              # markdown source for each article (banky-a-dane.md, duchod-ve-spanelsku.md, …)
+├── ebook-md/              # markdown source for each article (banky-a-dane.md, duchod-ve-spanelsku.md, …)
 ├── style-reference/
 │   └── book.png              # e-book cover used as typographic reference for the hero
 ├── blog/
@@ -194,11 +196,6 @@ Each Stěhování card on the home page links to a dedicated article page that d
 │   └── post-template.html    # single article (future)
 └── CLAUDE.md
 ```
-
-Filename mapping (markdown → HTML):
-- `banky-a-dane.md` → `articles/banky.html`
-- `duchod-ve-spanelsku.md` → `articles/duchod.html`
-- everything else uses the same slug
 
 ---
 
@@ -223,4 +220,4 @@ Filename mapping (markdown → HTML):
 - No images beyond the four listed in `images/` — all other visual interest comes from typography, Lucide icons, colour, and layout
 - Do not implement payment/checkout — buy buttons are links (hrefs to be filled in later)
 - Do not delete the commented-out Život / Cestování sections — they are intentionally preserved for future re-enablement
-- Do not add a build step to compile `articles-md/*.md` → `articles/*.html`. The HTML is hand-written and copy-edited; treat the markdown as a source brief, not a build input.
+- Do not add a build step to compile `ebook-md/*.md` → `ebook/*.html`. The HTML is hand-written and copy-edited; treat the markdown as a source brief, not a build input.
