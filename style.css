@@ -1496,3 +1496,165 @@ a.card:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===========================
+   Article body — images, links, tables (blog)
+   =========================== */
+.article__body figure {
+  margin: 2rem 0;
+}
+
+.article__body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.article__body .article__inline-img {
+  display: inline-block;
+  max-height: 1.6em;
+  width: auto;
+  vertical-align: text-bottom;
+  border-radius: 4px;
+}
+
+.article__body figcaption {
+  margin-top: var(--spacing-xs);
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+  text-align: center;
+  font-style: italic;
+}
+
+.article__body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article__body a:hover {
+  color: var(--color-accent-hover);
+}
+
+.article__body hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-xl) 0;
+}
+
+.article__table-wrap {
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.article__body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.article__body th,
+.article__body td {
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article__body th {
+  font-weight: 700;
+  background: var(--color-bg-grey);
+}
+
+.article__body tbody tr:hover {
+  background: var(--color-accent-light);
+}
+
+/* ===========================
+   Blog index & category pages
+   =========================== */
+.blog-cats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.blog-cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.blog-cat-chip:hover,
+.blog-cat-chip--active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.blog-cat-chip svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.75;
+}
+
+.blog-category {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.blog-category:last-child {
+  margin-bottom: 0;
+}
+
+.blog-category__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.blog-category__title {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+}
+
+.blog-category__more {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+a.blog-card {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+
+a.blog-card:hover {
+  color: inherit;
+  border-color: var(--color-accent);
+}
+
+.blog-card__cat {
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.blog-card__link {
+  margin-top: auto;
+}
