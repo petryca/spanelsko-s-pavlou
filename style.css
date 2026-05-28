@@ -1658,3 +1658,120 @@ a.blog-card:hover {
 .blog-card__link {
   margin-top: auto;
 }
+
+/* ===========================
+   FAQ
+   =========================== */
+.faq__list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-item__q {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.18s ease;
+}
+
+.faq-item__q::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__q:hover {
+  color: var(--color-accent);
+}
+
+/* Chevron drawn with CSS */
+.faq-item__q::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  margin-top: 0.4em;
+  border-right: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] > .faq-item__q::after {
+  transform: rotate(-135deg);
+}
+
+.faq-item__a {
+  padding: 0 0 var(--spacing-md);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text-light);
+}
+
+.faq-item__a p {
+  max-width: 68ch;
+}
+
+@media (max-width: 768px) {
+  .faq-item__q {
+    font-size: var(--fs-base);
+  }
+}
+
+/* FAQ teaser on the homepage */
+.faq-teaser__links {
+  max-width: 720px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.faq-teaser__links li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-teaser__links li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-teaser__links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color 0.18s ease;
+}
+
+.faq-teaser__links a:hover {
+  color: var(--color-accent);
+}
+
+.faq-teaser__links a::after {
+  content: "→";
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .faq-teaser__links a {
+    font-size: var(--fs-base);
+  }
+}
