@@ -392,6 +392,21 @@ ul, ol {
   margin-top: 4px;
 }
 
+.about__more {
+  margin-top: var(--spacing-lg);
+}
+
+.about__more a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about__more a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
 /* ===========================
    Card Grid (icon + text)
    =========================== */
