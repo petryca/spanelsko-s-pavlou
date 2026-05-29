@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Náhled Facebook reklam — Španělsko s Pavlou</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fb-blue: #1877F2;
+      --fb-cta-bg: #E4E6EB;
+      --fb-cta-text: #050505;
+      --fb-text: #050505;
+      --fb-muted: #65676B;
+      --fb-border: #CED0D4;
+      --fb-card-bg: #FFFFFF;
+      --fb-page-bg: #F0F2F5;
+      --brand: #C8553D;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--fb-page-bg);
+      color: var(--fb-text);
+      line-height: 1.5;
+      padding: 48px 20px 80px;
+    }
+
+    /* ---- Page intro ---- */
+    .intro {
+      max-width: 920px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .intro__eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 12px;
+    }
+    .intro h1 {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .intro p {
+      font-size: 16px;
+      color: var(--fb-muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ---- Layout of the three ads ---- */
+    .ads {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    @media (max-width: 1100px) {
+      .ads { grid-template-columns: 1fr; max-width: 500px; }
+    }
+
+    .variant {
+      display: flex;
+      flex-direction: column;
+    }
+    .variant__label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--fb-text);
+      margin-bottom: 4px;
+    }
+    .variant__note {
+      font-size: 13px;
+      color: var(--fb-muted);
+      margin-bottom: 14px;
+    }
+
+    /* ---- Facebook ad card ---- */
+    .fb-ad {
+      background: var(--fb-card-bg);
+      border: 1px solid var(--fb-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    .fb-ad__head {
+      display: flex;
+      align-items: center;
+      padding: 12px 12px 10px;
+    }
+    .fb-ad__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ddd;
+      flex-shrink: 0;
+    }
+    .fb-ad__pageinfo {
+      margin-left: 8px;
+      min-width: 0;
+    }
+    .fb-ad__page {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--fb-text);
+    }
+    .fb-ad__meta {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--fb-muted);
+    }
+    .fb-ad__dots {
+      margin-left: auto;
+      color: var(--fb-muted);
+      font-size: 20px;
+      letter-spacing: 1px;
+      padding: 0 6px;
+      align-self: flex-start;
+    }
+
+    .fb-ad__text {
+      padding: 0 12px 10px;
+      font-size: 15px;
+      color: var(--fb-text);
+      white-space: pre-line;
+    }
+    .fb-ad__seemore {
+      color: var(--fb-muted);
+      font-weight: 600;
+    }
+
+    .fb-ad__image {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    /* ---- Link card under image ---- */
+    .fb-ad__link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F7F8FA;
+      padding: 12px;
+      border-top: 1px solid var(--fb-border);
+    }
+    .fb-ad__linktext { min-width: 0; flex: 1; }
+    .fb-ad__domain {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--fb-muted);
+      letter-spacing: 0.02em;
+    }
+    .fb-ad__headline {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--fb-text);
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .fb-ad__desc {
+      font-size: 13px;
+      color: var(--fb-muted);
+      margin-top: 2px;
+    }
+    .fb-ad__cta {
+      flex-shrink: 0;
+      background: var(--fb-cta-bg);
+      color: var(--fb-cta-text);
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    /* ---- Engagement bar ---- */
+    .fb-ad__engage {
+      display: flex;
+      justify-content: space-around;
+      padding: 6px 12px;
+      border-top: 1px solid var(--fb-border);
+    }
+    .fb-ad__action {
+      flex: 1;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fb-muted);
+      padding: 8px 0;
+    }
+
+    /* ---- Copy reference block ---- */
+    .specs {
+      max-width: 1280px;
+      margin: 56px auto 0;
+      background: #fff;
+      border: 1px solid var(--fb-border);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+    .specs h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .specs p {
+      font-size: 14px;
+      color: var(--fb-muted);
+      margin-bottom: 4px;
+    }
+    .specs strong { color: var(--fb-text); }
+
+    footer {
+      max-width: 1280px;
+      margin: 40px auto 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--fb-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro">
+    <span class="intro__eyebrow">Interní náhled · není to živá reklama</span>
+    <h1>Náhled Facebook reklam</h1>
+    <p>Tři varianty reklamy „Španělsko s Pavlou" tak, jak by se přibližně zobrazily ve Facebook feedu na mobilu. Texty i obrázky jsou jen návrh ke schválení.</p>
+  </div>
+
+  <div class="ads">
+
+    <!-- ===================== VARIANTA 1 ===================== -->
+    <div class="variant">
+      <div class="variant__label">Varianta 1 — Osobní / důvěryhodná</div>
+      <div class="variant__note">Foto Pavly · první osoba · sociální důkaz</div>
+
+      <div class="fb-ad">
+        <div class="fb-ad__head">
+          <img class="fb-ad__avatar" src="../images/pavla.jpg" alt="Profilová fotka Pavly">
+          <div class="fb-ad__pageinfo">
+            <div class="fb-ad__page">Španělsko s Pavlou</div>
+            <div class="fb-ad__meta">Sponzorováno · <span>🌐</span></div>
+          </div>
+          <div class="fb-ad__dots">···</div>
+        </div>
+
+        <div class="fb-ad__text">35 let ve Španělsku a 100+ Čechů, kterým jsem pomohla začít tu nový život. Teď vše v jednom praktickém průvodci. 🇪🇸 <span class="fb-ad__seemore">… Zobrazit více</span></div>
+
+        <img class="fb-ad__image" src="../images/pavla.jpg" alt="Pavla ve Španělsku">
+
+        <div class="fb-ad__link">
+          <div class="fb-ad__linktext">
+            <div class="fb-ad__domain">spanelskospavlou.cz</div>
+            <div class="fb-ad__headline">Život ve Španělsku bez stresu</div>
+            <div class="fb-ad__desc">Praktický průvodce od Pavly</div>
+          </div>
+          <button class="fb-ad__cta">Stáhnout</button>
+        </div>
+
+        <div class="fb-ad__engage">
+          <div class="fb-ad__action">👍 To se mi líbí</div>
+          <div class="fb-ad__action">💬 Komentář</div>
+          <div class="fb-ad__action">↗ Sdílet</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== VARIANTA 2 ===================== -->
+    <div class="variant">
+      <div class="variant__label">Varianta 2 — Problém / řešení</div>
+      <div class="variant__note">Foto Španělska · seznam témat · věcný tón</div>
+
+      <div class="fb-ad">
+        <div class="fb-ad__head">
+          <img class="fb-ad__avatar" src="../images/pavla.jpg" alt="Profilová fotka Pavly">
+          <div class="fb-ad__pageinfo">
+            <div class="fb-ad__page">Španělsko s Pavlou</div>
+            <div class="fb-ad__meta">Sponzorováno · <span>🌐</span></div>
+          </div>
+          <div class="fb-ad__dots">···</div>
+        </div>
+
+        <div class="fb-ad__text">Doklady, bydlení, banka, zdravotnictví… kde vůbec začít? Průvodce vás provede vším podstatným krok za krokem. <span class="fb-ad__seemore">… Zobrazit více</span></div>
+
+        <img class="fb-ad__image" src="../images/spain-3.jpg" alt="Španělsko">
+
+        <div class="fb-ad__link">
+          <div class="fb-ad__linktext">
+            <div class="fb-ad__domain">spanelskospavlou.cz</div>
+            <div class="fb-ad__headline">Stěhování do Španělska krok za krokem</div>
+            <div class="fb-ad__desc">Vše podstatné v jednom e-booku</div>
+          </div>
+          <button class="fb-ad__cta">Zjistit více</button>
+        </div>
+
+        <div class="fb-ad__engage">
+          <div class="fb-ad__action">👍 To se mi líbí</div>
+          <div class="fb-ad__action">💬 Komentář</div>
+          <div class="fb-ad__action">↗ Sdílet</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== VARIANTA 3 ===================== -->
+    <div class="variant">
+      <div class="variant__label">Varianta 3 — Krátká / emoční</div>
+      <div class="variant__note">Foto Španělska · sen + plán · pro retargeting</div>
+
+      <div class="fb-ad">
+        <div class="fb-ad__head">
+          <img class="fb-ad__avatar" src="../images/pavla.jpg" alt="Profilová fotka Pavly">
+          <div class="fb-ad__pageinfo">
+            <div class="fb-ad__page">Španělsko s Pavlou</div>
+            <div class="fb-ad__meta">Sponzorováno · <span>🌐</span></div>
+          </div>
+          <div class="fb-ad__dots">···</div>
+        </div>
+
+        <div class="fb-ad__text">Sen o životě ve Španělsku ✨ a praktický plán, jak na to. Od Pavly, která tu žije 35 let. <span class="fb-ad__seemore">… Zobrazit více</span></div>
+
+        <img class="fb-ad__image" src="../images/spain-5.jpg" alt="Španělsko">
+
+        <div class="fb-ad__link">
+          <div class="fb-ad__linktext">
+            <div class="fb-ad__domain">spanelskospavlou.cz</div>
+            <div class="fb-ad__headline">Začněte svůj život ve Španělsku</div>
+            <div class="fb-ad__desc">Praktický e-book od Pavly</div>
+          </div>
+          <button class="fb-ad__cta">Koupit</button>
+        </div>
+
+        <div class="fb-ad__engage">
+          <div class="fb-ad__action">👍 To se mi líbí</div>
+          <div class="fb-ad__action">💬 Komentář</div>
+          <div class="fb-ad__action">↗ Sdílet</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="specs">
+    <h2>Poznámky k textům</h2>
+    <p><strong>Hlavní text (primary text):</strong> Facebook zkracuje text zhruba po 125 znacích odkazem „Zobrazit více". Proto je v každé variantě nejdůležitější sdělení hned v první větě.</p>
+    <p><strong>Nadpis (headline) a tlačítko:</strong> jsou ve spodní kartě pod obrázkem a zobrazí se vždy — uživatel kvůli nim nemusí klikat na „Zobrazit více".</p>
+    <p><strong>Formátování:</strong> Facebook umí odstavce a odřádkování, ale ne tučné písmo ani opravdové odrážky. Seznamy se dělají znakem • nebo emoji.</p>
+    <p><strong>Doména a tlačítko</strong> jsou jen návrh — finální URL i text tlačítka („Stáhnout" / „Zjistit více" / „Koupit") se nastaví v Meta Ads Manageru.</p>
+  </div>
+
+  <footer>
+    Náhled vytvořen pro klienta · Španělsko s Pavlou · obrázky a texty jsou návrh ke schválení
+  </footer>
+
+</body>
+</html>
