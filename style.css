@@ -403,7 +403,7 @@ ul, ol {
 }
 
 .card-grid--five {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
@@ -1488,7 +1488,7 @@ a.card:hover {
   }
 
   .card-grid--five {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .testimonial-grid,

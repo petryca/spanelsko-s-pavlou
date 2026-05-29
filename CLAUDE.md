@@ -37,7 +37,7 @@ All content is in **Czech**.
 - Generous whitespace between sections (80–120px vertical padding)
 - Card grids for icon+text items: responsive CSS Grid
   - `.card-grid` → 3 columns desktop, 2 columns tablet, 2 columns mobile (default)
-  - `.card-grid--five` modifier → 5 columns desktop (10-item layouts), 4 columns tablet, 2 columns mobile
+  - `.card-grid--five` modifier → capped at **3 columns** desktop and tablet, 2 columns mobile (used by the Stěhování grid; the modifier name is historical — it no longer means 5 columns)
 - Mobile-first responsive approach (breakpoint at 768px)
 
 ### Icons
@@ -57,7 +57,7 @@ All content is in **Czech**.
 - No product covers beyond the e-book, no blog thumbnails
 - All other visual interest comes from typography, colour, whitespace, and Lucide icons
 - Blog preview cards use text only (no thumbnail images)
-- Articles in blog may contain specific content images
+- Blog articles may contain inline content images. Each article keeps its images in a sibling `<article-slug>-media/` folder (e.g. `blog/bydleni/zivot-v-jeskyni-media/image1.jpeg`) and references them with a relative path. Images use `loading="lazy" decoding="async"` and are wrapped in `<figure>`.
 
 ### Interactions
 - Smooth scroll for anchor navigation
@@ -94,7 +94,7 @@ All content is in **Czech**.
 
 ### 4. Stěhování do Španělska
 - Section headline + short intro
-- Grid of 10 icon + text cards (`.card-grid--five`, 5×2 on desktop). **Each card is an `<a class="card">` wrapper linking to its article page in `ebook/`:**
+- Grid of icon + text cards (`.card-grid--five`, max 3 columns — see Layout). **Each card is an `<a class="card">` wrapper linking to its article page in `ebook/`:**
   - Doklady (`file-text`) → `ebook/doklady.html`
   - Bydlení (`home`) → `ebook/bydleni.html`
   - Banky (`landmark`) → `ebook/banky.html`
@@ -104,11 +104,11 @@ All content is in **Czech**.
   - Zdravotnictví (`heart-pulse`) → `ebook/zdravotnictvi.html`
   - Důchod (`piggy-bank`) → `ebook/duchod.html`
   - Auto (`car`) → `ebook/auto.html`
-  - LGBT (`rainbow`) → `ebook/lgbt.html` 
+  - LGBT (`rainbow`) → `ebook/lgbt.html` — **currently commented out in `index.html`; the `ebook/lgbt.html` page does not exist yet.** Keep the comment wrapper intact and re-enable the card once the page is created.
 - **Product block** — single product, split half/half (`.product-feature`):
   - Left half: full-bleed `images/ebook.jpg` (no padding, `object-fit: cover`)
   - Right half: title, description, bullet list of inclusions, price, primary "Koupit e-book" CTA
-- The e-book is positioned as covering all 10 listed topics
+- The e-book is positioned as covering all the listed topics
 
 ### 5. Proč Pavla / Social proof (`#recenze`)
 - Testimonial cards (3) with stars, quote, attribution
@@ -116,8 +116,9 @@ All content is in **Czech**.
 
 ### 6. Blog preview (`#blog`)
 - Section headline ("Nejnovější články")
-- 3 article preview cards (title, excerpt, date — no thumbnail images)
-- "Všechny články →" link (href placeholder)
+- 3 hand-picked article preview cards (`.blog-card`): category label (`.blog-card__cat`), title, excerpt — no thumbnail images. Links point into `blog/<category>/<slug>.html`.
+- "Všechny články →" link (`.btn--outline`) → `blog/index.html`
+- These three cards are curated manually — when you publish a notable new article, swap one of them here so the homepage stays fresh.
 
 ### 7. Kontakt / Footer CTA (`#kontakt`)
 - Newsletter signup form (email input + submit button)
@@ -153,8 +154,11 @@ Each Stěhování card on the home page links to a dedicated article page that d
 5. **Sales section** (`#ebook`, `.section--grey`) — reuses the home page's `.product-feature` (image left, content right, single product).
 6. **Same footer** as the home page (legal links resolve to `../index.html`).
 
-### Stub pages
-- `ebook/lgbt.html` uses the `.article-stub` block instead of a real body — a centred icon, "Tato kapitola se právě připravuje" headline, short copy, and a button down to `#ebook`. Replace the stub block with a real `.article__body` once the markdown source exists in `ebook-md/`.
+### Markdown source
+- `ebook-md/` holds the source brief for each chapter, one file per page named to match the HTML (`doklady.md`, `banky.md`, `duchod.md`, …). The HTML is hand-written from these briefs — do **not** add a build step (see "What NOT to do").
+
+### Stub pages / unfinished chapters
+- The **LGBT** chapter is not built yet: there is no `ebook/lgbt.html` and no `ebook-md/lgbt.md`, and the card is commented out in `index.html`. When ready, write `ebook-md/lgbt.md`, create `ebook/lgbt.html` from the shared article structure, and un-comment the card.
 
 ### Asset paths
 - Stylesheet: `../style.css`
@@ -164,20 +168,63 @@ Each Stěhování card on the home page links to a dedicated article page that d
 
 ---
 
+## Blog management (frequent updates)
+
+The blog is the most actively-updated part of the site, so treat it as a small, repeatable content system rather than ad-hoc pages. It is **category-based** and fully hand-written (no build step — same rule as the e-book).
+
+### Layout
+- `blog/index.html` — the main hub: a `.blog-cats` row of category chips at the top, followed by one `.blog-category` block per category. Each block has a heading + "Vše z kategorie →" link and a `.blog-grid` of `.blog-card`s.
+- `blog/<category>/index.html` — a per-category listing. Same `.blog-cats` chip row (with the current category's chip carrying `.blog-cat-chip--active`), an `.article-hero` titled with the category name + a `Kategorie` eyebrow, then a `.blog-grid` of that category's articles.
+- `blog/<category>/<slug>.html` — the article itself.
+- `blog/<category>/<slug>-media/` — inline images for that article (create only when needed).
+- `blog-md/` mirrors the whole tree (`blog-md/<category>/<slug>.md` + matching `-media/`) and holds the source brief for each article.
+
+### Current categories (slug → display name)
+- `barcelona` → Barcelona (`building-2`)
+- `bydleni` → Bydlení (`home`)
+- `dobroty-a-restaurace` → Dobroty a restaurace (`utensils`)
+- `spanelstina` → Španělština (`languages`)
+- `spolecnost` → Společnost (`users`)
+- `svatky-a-slavnosti` → Svátky a slavnosti (`party-popper`)
+
+### Article page structure
+Same shell as the e-book article pages, but assets resolve **two levels up** (`../../style.css`, `../../script.js`, `../../index.html#…`) because articles live in `blog/<category>/`.
+1. Shared sticky **header** (brand → `../../index.html`, "Články" link → `../../blog/index.html`).
+2. **`.article-hero`** — back-link to the category index (`index.html`, label e.g. `← Zpět na Bydlení`) + `.article-hero__title`.
+3. **`.article` → `.article__body`** — prose (max-width 720px, 17px/1.75). Inline images go in `<figure><img loading="lazy" decoding="async"></figure>` referencing `<slug>-media/imageN.ext`.
+4. **`.article__cta`** — the e-book cross-sell aside ("Plánujete přesun do Španělska?" → `../../index.html#stehovani`). Keep this on every article.
+5. Shared **footer**.
+6. `<head>`: unique `<title>` (`Název článku — Španělsko s Pavlou`) and a Czech `<meta name="description">`; same Google Fonts + analytics tags as the rest of the site.
+
+### Publishing a new article — checklist
+1. Drop the source brief in `blog-md/<category>/<slug>.md` (+ a `-media/` folder if it has images).
+2. Create `blog/<category>/<slug>.html` from the structure above (copy an existing article as the template, e.g. `blog/bydleni/zivot-v-jeskyni.html`). Add any images under `blog/<category>/<slug>-media/`.
+3. Add a `.blog-card` for it to **two** listings: `blog/<category>/index.html` and the matching `.blog-category` block in `blog/index.html`.
+4. If it's a notable piece, swap it into one of the **3 homepage preview cards** in `index.html` (`#blog` section) so the homepage stays current.
+5. Use a kebab-case, diacritics-free slug; keep excerpts ~1–2 sentences in Czech with proper diacritics.
+
+### Adding a new category
+1. Create `blog/<new-category>/index.html` (copy an existing category index) and a matching `blog-md/<new-category>/` folder.
+2. Add the category chip to the `.blog-cats` row in **every** blog page (main hub, every category index — they all render the full chip row) and add a new `.blog-category` block to `blog/index.html`. Pick a Lucide icon for the chip.
+
+---
+
 ## File structure
 
 ```
 /
 ├── index.html
+├── faq.html                  # standalone FAQ page (reuses the shared header/footer)
 ├── style.css
 ├── script.js                 # minimal — mobile nav toggle, IntersectionObserver, lucide.createIcons()
+├── CNAME                      # custom domain for GitHub Pages
 ├── images/
 │   ├── pavla.jpg
 │   ├── ebook.jpg
 │   ├── hero-wide.jpg
 │   ├── hero-square.jpg
 │   └── spain-1.jpg … spain-5.jpg   # section decor circles on homepage
-├── ebook/                 # one HTML page per topic in the Stěhování grid
+├── ebook/                 # one HTML page per topic in the Stěhování grid (lgbt not built yet)
 │   ├── doklady.html
 │   ├── bydleni.html
 │   ├── banky.html
@@ -186,14 +233,22 @@ Each Stěhování card on the home page links to a dedicated article page that d
 │   ├── vzdelani.html
 │   ├── zdravotnictvi.html
 │   ├── duchod.html
-│   ├── auto.html
-│   └── lgbt.html             # stub (no markdown yet)
-├── ebook-md/              # markdown source for each article (banky-a-dane.md, duchod-ve-spanelsku.md, …)
+│   └── auto.html
+├── ebook-md/              # markdown source/brief per chapter — filenames match the HTML (doklady.md, banky.md, …)
 ├── style-reference/
 │   └── book.png              # e-book cover used as typographic reference for the hero
-├── blog/
-│   ├── index.html            # blog listing (future)
-│   └── post-template.html    # single article (future)
+├── blog/                  # category-based blog — see "Blog management" below
+│   ├── index.html            # main listing: category chips + every article grouped by category
+│   ├── barcelona/            # one folder per category
+│   │   ├── index.html        # category listing (chips with this one --active)
+│   │   ├── <slug>.html       # article pages
+│   │   └── <slug>-media/     # per-article inline images (only when an article has images)
+│   ├── bydleni/
+│   ├── dobroty-a-restaurace/
+│   ├── spanelstina/
+│   ├── spolecnost/
+│   └── svatky-a-slavnosti/
+├── blog-md/               # markdown source mirroring blog/ (same category/slug + -media folders)
 └── CLAUDE.md
 ```
 
@@ -217,7 +272,7 @@ Each Stěhování card on the home page links to a dedicated article page that d
 - No frameworks (React, Vue, Tailwind, Bootstrap)
 - No build tools or package managers
 - No placeholder lorem ipsum — use realistic Czech placeholder copy
-- No images beyond the four listed in `images/` — all other visual interest comes from typography, Lucide icons, colour, and layout
+- No decorative imagery on the marketing pages beyond those in `images/` (Pavla, e-book, hero, `spain-*` decor circles) — visual interest there comes from typography, Lucide icons, colour, and layout. Blog articles are the exception: they may carry their own inline content images in per-article `-media/` folders.
 - Do not implement payment/checkout — buy buttons are links (hrefs to be filled in later)
 - Do not delete the commented-out Život / Cestování sections — they are intentionally preserved for future re-enablement
 - Do not add a build step to compile `ebook-md/*.md` → `ebook/*.html`. The HTML is hand-written and copy-edited; treat the markdown as a source brief, not a build input.
