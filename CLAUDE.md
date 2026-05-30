@@ -49,7 +49,8 @@ All content is in **Czech**.
 
 ### Images
 - **Images on the site:**
-  - Pavla's photo: `images/pavla.jpg`
+  - Pavla's photo: `images/pavla.jpg` (homepage O Pavle section)
+  - Pavla's photo 2: `images/pavla2.jpg` (used in the `o-pavle.html` story page)
   - E-book cover: `images/ebook.jpg`
   - Hero backdrop wide: `images/hero-wide.jpg` (≥769px)
   - Hero backdrop square: `images/hero-square.jpg` (≤768px, served via `<picture>` source)
@@ -91,6 +92,7 @@ All content is in **Czech**.
 - Photo: `images/pavla.jpg`
 - 2–3 sentence personal pitch
 - Trust signals (35+ let ve Španělsku, 100+ klientů, e-booky a průvodce)
+- Closes with an `.about__more` link ("Přečtěte si celý můj příběh →") to the full story page `o-pavle.html`. This is the **only** entry point to that page — it is intentionally not in the nav.
 
 ### 4. Stěhování do Španělska
 - Section headline + short intro
@@ -154,11 +156,8 @@ Each Stěhování card on the home page links to a dedicated article page that d
 5. **Sales section** (`#ebook`, `.section--grey`) — reuses the home page's `.product-feature` (image left, content right, single product).
 6. **Same footer** as the home page (legal links resolve to `../index.html`).
 
-### Markdown source
-- `ebook-md/` holds the source brief for each chapter, one file per page named to match the HTML (`doklady.md`, `banky.md`, `duchod.md`, …). The HTML is hand-written from these briefs — do **not** add a build step (see "What NOT to do").
-
 ### Stub pages / unfinished chapters
-- The **LGBT** chapter is not built yet: there is no `ebook/lgbt.html` and no `ebook-md/lgbt.md`, and the card is commented out in `index.html`. When ready, write `ebook-md/lgbt.md`, create `ebook/lgbt.html` from the shared article structure, and un-comment the card.
+- The **LGBT** chapter is not built yet: there is no `ebook/lgbt.html` and the card is commented out in `index.html`. When ready, create `ebook/lgbt.html` from the shared article structure and un-comment the card.
 
 ### Asset paths
 - Stylesheet: `../style.css`
@@ -215,11 +214,13 @@ Same shell as the e-book article pages, but assets resolve **two levels up** (`.
 /
 ├── index.html
 ├── faq.html                  # standalone FAQ page (reuses the shared header/footer)
+├── o-pavle.html              # standalone "O Pavle" story/bio page (uses images/pavla2.jpg); linked only from the homepage O Pavle section, not the nav
 ├── style.css
 ├── script.js                 # minimal — mobile nav toggle, IntersectionObserver, lucide.createIcons()
 ├── CNAME                      # custom domain for GitHub Pages
 ├── images/
 │   ├── pavla.jpg
+│   ├── pavla2.jpg                  # used on the o-pavle.html story page
 │   ├── ebook.jpg
 │   ├── hero-wide.jpg
 │   ├── hero-square.jpg
@@ -234,7 +235,6 @@ Same shell as the e-book article pages, but assets resolve **two levels up** (`.
 │   ├── zdravotnictvi.html
 │   ├── duchod.html
 │   └── auto.html
-├── ebook-md/              # markdown source/brief per chapter — filenames match the HTML (doklady.md, banky.md, …)
 ├── style-reference/
 │   └── book.png              # e-book cover used as typographic reference for the hero
 ├── blog/                  # category-based blog — see "Blog management" below
@@ -275,4 +275,4 @@ Same shell as the e-book article pages, but assets resolve **two levels up** (`.
 - No decorative imagery on the marketing pages beyond those in `images/` (Pavla, e-book, hero, `spain-*` decor circles) — visual interest there comes from typography, Lucide icons, colour, and layout. Blog articles are the exception: they may carry their own inline content images in per-article `-media/` folders.
 - Do not implement payment/checkout — buy buttons are links (hrefs to be filled in later)
 - Do not delete the commented-out Život / Cestování sections — they are intentionally preserved for future re-enablement
-- Do not add a build step to compile `ebook-md/*.md` → `ebook/*.html`. The HTML is hand-written and copy-edited; treat the markdown as a source brief, not a build input.
+- Do not add a build step to compile `blog-md/*.md` → `blog/*.html`. The HTML is hand-written and copy-edited; treat the markdown as a source brief, not a build input.
