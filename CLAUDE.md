@@ -182,6 +182,8 @@ The blog is the most actively-updated part of the site, so treat it as a small, 
 - `barcelona` → Barcelona (`building-2`)
 - `bydleni` → Bydlení (`home`)
 - `dobroty-a-restaurace` → Dobroty a restaurace (`utensils`)
+- `historie` → Historie (`landmark`)
+- `mista` → Místa (`map-pin`)
 - `spanelstina` → Španělština (`languages`)
 - `spolecnost` → Společnost (`users`)
 - `svatky-a-slavnosti` → Svátky a slavnosti (`party-popper`)
