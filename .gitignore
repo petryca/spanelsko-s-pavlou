@@ -20,3 +20,6 @@
 
 # Node (if you ever use live-server or similar)
 node_modules/
+
+# Private post-purchase download page (secret URL, kept out of the repo)
+/03a7fbc7.html
